@@ -1,4 +1,5 @@
 import os
+os.environ["LANGCHAIN_HANDLER"] = "langchain"
 
 from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI

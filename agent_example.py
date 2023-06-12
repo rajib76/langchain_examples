@@ -1,4 +1,6 @@
 import os
+os.environ["LANGCHAIN_TRACING"] = "true"
+os.environ["LANGCHAIN_SESSION"] = "agent_chain"
 
 from dotenv import load_dotenv
 from langchain import OpenAI
