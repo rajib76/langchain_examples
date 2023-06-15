@@ -3,3 +3,5 @@ psycopg2-binary
 python-dotenv
 openai
 google-generativeai
+supabase
+tiktoken
