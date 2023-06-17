@@ -5,3 +5,6 @@ openai
 google-generativeai
 supabase
 tiktoken
+unstructured
+ssl
+nltk
