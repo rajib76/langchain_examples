@@ -11,3 +11,4 @@ nltk
 PyPDF2
 atlassian-python-api
 bs4
+kuzu
