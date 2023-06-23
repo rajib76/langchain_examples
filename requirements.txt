@@ -12,3 +12,6 @@ PyPDF2
 atlassian-python-api
 bs4
 kuzu
+google-cloud-aiplatform
+zep-python
+duckduckgo-search
