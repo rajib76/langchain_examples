@@ -1,5 +1,6 @@
 # This program shows how you can use few shot prompting to do guided question and answering
 # This program can be further optimized which I will do incrementally
+# https://github.com/rajib76/langchain_examples
 import os
 
 from dotenv import load_dotenv

@@ -15,3 +15,7 @@ kuzu
 google-cloud-aiplatform
 zep-python
 duckduckgo-search
+nomic
+gpt4all
+pyllamacpp
+google-search-results
