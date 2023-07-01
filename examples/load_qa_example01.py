@@ -87,11 +87,13 @@ llm = ChatOpenAI(
 
 # memory = ConversationBufferMemory()
 memory = MyConversationBufferMemory()
+history=memory.chat_memory.messages
 prompt = PromptTemplate(
-            template="Answer the user question based on provided context only."
-                     "\n\nContext: {context}\n\nQuestion: {question}\n\nAnswer:",
-            input_variables=["question","context"]
+            template="Answer the user question based on provided context and history only."
+                     "\n\nHistory:{history}\n\nContext: {context}\n\nQuestion: {question}\n\nAnswer:",
+            input_variables=["question","context","history"]
         )
+
 
 conversation = load_qa_chain(
     llm=llm,
@@ -104,7 +106,8 @@ conversation = load_qa_chain(
 
 while True:
     inpt = input("You: ")
-    res = conversation.run(input_documents=data, question=inpt)
+    print("memory is ", str(memory.chat_memory.messages))
+    res = conversation.run(input_documents=data, question=inpt,history=str(memory.chat_memory))
     print("AI: " + res)
 
     print(memory)
