@@ -22,10 +22,10 @@ class MyConversation():
     def get_response(self, query):
         PROMPT_TEMPLATE = """
         {chat_history}
-        Human: {input}
+        Human: {question}
         AI:"""
 
-        PROMPT = PromptTemplate(input_variables=["input", "chat_history"], template=PROMPT_TEMPLATE)
+        PROMPT = PromptTemplate(input_variables=["question", "chat_history"], template=PROMPT_TEMPLATE)
 
         llm = ChatOpenAI(model_name="gpt-3.5-turbo",
                          openai_api_key=OPENAI_API_KEY,
@@ -34,12 +34,13 @@ class MyConversation():
 
         chat_chain = ConversationChain(
             llm=llm,
+            input_key="question",
             # You have to define input variables that will be taken from the normal input and memory sequentially.
             prompt=PROMPT
             , memory=self.memory)
 
         with get_openai_callback() as cb:
-            response = chat_chain.predict(input=query, chat_history=self.memory.chat_memory.messages)
+            response = chat_chain.predict(question=query, chat_history=self.memory.chat_memory.messages)
             print(response)
 
             print("Cost and token usage :{cb}".format(cb=cb))
