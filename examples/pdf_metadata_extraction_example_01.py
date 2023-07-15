@@ -1,7 +1,7 @@
 #python -m spacy download en_core_web_sm
 import json
 import os
-import spacy
+
 import PyPDF2
 from dotenv import load_dotenv
 from langchain.chains import create_extraction_chain
